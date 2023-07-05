@@ -1,0 +1,55 @@
+{
+  "name": "@daswap/core",
+  "description": "Core contracts for the Daswap protocol",
+  "version": "1.0.4",
+  "homepage": "https://daswap.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daswap/daswap-core"
+  },
+  "keywords": [
+    "uniswap",
+    "daswap",
+    "ethereum",
+    "core"
+  ],
+  "files": [
+    "contracts",
+    "build"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "devDependencies": {
+    "@truffle/hdwallet-provider": "^1.0.40",
+    "@types/chai": "^4.2.6",
+    "@types/mocha": "^5.2.7",
+    "chai": "^4.2.0",
+    "dotenv": "^8.2.0",
+    "ethereum-waffle": "^2.5.0",
+    "ethereumjs-util": "^6.2.0",
+    "mocha": "^6.2.2",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.0",
+    "solc": "0.7.0",
+    "truffle": "^5.1.37",
+    "truffle-contract-size": "^2.0.0",
+    "truffle-plugin-verify": "^0.4.0",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.3",
+    "verify-on-etherscan": "^1.2.1"
+  },
+  "scripts": {
+    "lint": "yarn prettier ./test/*.ts --check",
+    "lint:fix": "yarn prettier ./test/*.ts --write",
+    "clean": "rimraf ./build/",
+    "precompile": "yarn clean",
+    "compile": "waffle .waffle.json",
+    "pretest": "yarn compile",
+    "test": "mocha",
+    "contract-size": "npx truffle run contract-size",
+    "deploy-rinkeby": "npx truffle migrate --network rinkeby",
+    "verify": "npx truffle run verify"
+  },
+  "license": "GPL-3.0-or-later"
+}
